@@ -1,0 +1,88 @@
+root : navigation container ==> router
+main : statefull Component
+ListView : important ==> performant .
+  datasoruce
+
+ListItem component : stateless component , no internal state is required
+
+TouchableOpacity : attach touch events on this item
+
+§// web : onclick , on travaille des touch events
+  on doit wrap chaque component qu'on veut appliquer le touch event sur
+  dans le TouchableOpacity
+  ==> ça reduit l'opacité qu'on on touche sur le component .
+
+  il ya plus tags (touchablehilight ....)
+
+  spotify api integration :
+    fetcher.js : contient nos apis calls
+    fetch api :similar to http service /
+       xhr aussi .
+
+    fetch : get ==> response ==> retourner the json version of this response
+      search
+recap : every time a user types sth on the text bar
+the onchangetext fires ==> passes a query to our makeQuery method
+ ==> makes a request to spotify api
+==> request resolved ==> state updated
+==> list rerendered
+
+
+Animation : slide fading similar to react motion on the web
+==> using a built in animation api by react native
+==> fadeinview in itemlist component
+   qui n'est pas propre à react native mais developpé
+   et apres importé au niveau de listItem
+features : parallel anims , change anim values , change colors veryyy performant
+
+
+
+Navigation : navigator similar to router on the web .
+different navigators:  navigator ios , justnavigator both on ios and android.
+     which recommended
+  in order to use this navig component ==> we have to
+  render it on our root page
+  ==> define props
+  initialRoute:the shape of the object route
+  each route has a unique id +first route id :MAIN+
+  pass in data into this route object (title)
+  ==> we use this in a funct called renderScene
+renderScene: gets the current state of the navigator
+==> state ==> define the logic of what component should be rendered into the screen
+
+
+navigator: stack navigation like ionic==> array of navigator states
+==> push to go to new state or pop to comeback to previous state
+
+
+artist: straight forward component.
+
+
+revenir au main :
+
+ navigator inside listitem : because it depends de chaque listitem component
+
+
+ when the user clicks on an item the navigator.push is gonna be called
+ ==> renderScene called ==> route is going to have an id of artist detail
+ ==> + url prop ==> that's the url we're passing into our artist component
+
+
+
+last part to get this navigator to work ==> passing a navigation bar
+==> the blue bar at the top
+==> persistence across all the routes
+==> stays at top ==>
+
+
+navigationBar : built in
+
+ ==> 3 sections
+  title :center
+  left butt
+  RightButton
+  ==> control by routeMapper
+
+
+everytime a navigation event is called :renderScene
++navigationBar has to be excuted
